@@ -4,7 +4,7 @@ from ui_testing.tests.login import LoginTest
 test = LoginTest()
 
 
-@given(u'Estoy en la pagina de Mercury Tours)
+@given(u'Estoy en la pagina de Mercury Tours')
 def step_impl(context):
     test.setUpClass()
     test.test_go_url('http://newtours.demoaut.com/')
