@@ -1,15 +1,14 @@
 import time
 import unittest
 
-from selenium import webdriver
+from ui_testing.tests.initialize_test import InitializeTest
 
 
 class LoginTest(unittest.TestCase):
     # Este método se ejecuta la primera vez para instanciar el navegador
     @classmethod
     def setUpClass(cls):
-        cls.driver = webdriver.Chrome(executable_path="C:\\Users\\avelez\\PycharmProjects\\UITest\\ui_testing\\drivers\\chromedriver.exe")
-        cls.driver.maximize_window()
+        cls.driver = InitializeTest.start_driver()
 
     # Este método recibe como parámetro la URL del sitio
     def test_go_url(self, url):
@@ -22,10 +21,7 @@ class LoginTest(unittest.TestCase):
         self.driver.find_element_by_name("login").click()
 
 
-# Este método hace clic en el botón SIGN-OFF
-    def test_logout(self):
-        self.driver.find_element_by_link_text("SIGN-OFF")
-        time.sleep(2)
+
 
 
 def test_image(self):
