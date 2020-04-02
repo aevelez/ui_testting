@@ -14,24 +14,25 @@ class SearchFlyTest(unittest.TestCase):
 
         # Este método recibe como parámetro el login y password y hace clic en el botin Sign - In
 
-    def test_search(self):
+    def test_search(self, number_passengers, from_port, from_month, from_day,  to, to_month, to_day, airline, service_class):
         self.driver.find_element_by_xpath("//input[contains(@value,'oneway')]").click()
         select = Select(self.driver.find_element_by_name('passCount'))
-        select.select_by_visible_text('1')
+        select.select_by_visible_text(number_passengers)
         select = Select(self.driver.find_element_by_name('fromPort'))
-        select.select_by_visible_text('London')
+        select.select_by_visible_text(from_port)
         select = Select(self.driver.find_element_by_name('fromMonth'))
-        select.select_by_visible_text('June')
+        select.select_by_visible_text(from_month)
         select = Select(self.driver.find_element_by_name('fromDay'))
-        select.select_by_visible_text('15')
+        select.select_by_visible_text(from_day)
         select = Select(self.driver.find_element_by_name('toPort'))
-        select.select_by_visible_text('Paris')
+        select.select_by_visible_text(to)
         select = Select(self.driver.find_element_by_name('toMonth'))
-        select.select_by_visible_text('October')
+        select.select_by_visible_text(to_month)
         select = Select(self.driver.find_element_by_name('toDay'))
-        select.select_by_visible_text('1')
+        select.select_by_visible_text(to_day)
         select = Select(self.driver.find_element_by_name('airline'))
-        select.select_by_visible_text('Pangea Airlines')
+        select.select_by_visible_text(airline)
+        self.driver.find_element_by_xpath("//input[contains(@value,"+service_class+")]").click()
         self.driver.find_element_by_name('findFlights').click()
         time.sleep(2)
 
