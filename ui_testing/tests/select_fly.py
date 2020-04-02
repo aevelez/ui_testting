@@ -1,6 +1,5 @@
 import time
 import unittest
-from selenium.webdriver.support.ui import Select
 
 from ui_testing.tests.initialize_test import InitializeTest
 
